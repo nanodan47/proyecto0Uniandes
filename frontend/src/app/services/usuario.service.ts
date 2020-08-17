@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  myApUrl = ''
+  myApUrl = 'http://127.0.0.1:8000/'
   myApiUrl = 'api/create-user/'
   constructor(private http:HttpClient) { }
 
-  guardarUsuario(evento: users): Observable<users>{
-    return this.http.post<users>(this.myApUrl + this.myApiUrl, evento)
+  guardarUsuario(usuario: users): Observable<users>{
+    return this.http.post<users>(this.myApUrl + this.myApiUrl, usuario)
   }
 }

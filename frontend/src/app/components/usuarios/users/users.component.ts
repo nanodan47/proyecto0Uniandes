@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
 import { users } from '../../../models/usuario';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +11,7 @@ import { users } from '../../../models/usuario';
 })
 export class UsersComponent implements OnInit {
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) {
+  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService, private toastr: ToastrService) {
     this.form = this.formBuilder.group({
       nombre: ['',[Validators.required]],
       apellido: ['',[Validators.required]],
@@ -31,7 +32,7 @@ export class UsersComponent implements OnInit {
       password: this.form.get('contrasenia').value,
     }
     this.usuarioService.guardarUsuario(usuario).subscribe(data =>{
-      console.log('Guardado Exitosamente');
+      this.toastr.success('Registro Agregado','El usuario fue agregado')
       this.form.reset()
     })
     }
