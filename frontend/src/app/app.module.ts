@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +14,9 @@ import { ListEventsComponent } from './components/eventos/list-events/list-event
 import { FooterComponent } from './components/footer/footer.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsersComponent } from './components/usuarios/users/users.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { APP_BASE_HREF } from '@angular/common';
 
 
 
@@ -25,6 +29,7 @@ import { UsersComponent } from './components/usuarios/users/users.component';
     FooterComponent,
     UsuariosComponent,
     UsersComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { UsersComponent } from './components/usuarios/users/users.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [ {provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
