@@ -1,0 +1,64 @@
+<form [formGroup]="form" (ngSubmit)="guardarUsuario()">
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text" bg.white>
+					<i class="fas fa-user-circle"></i>
+				</div>
+			</div>
+			<input type="text" class="form-control" formControlName="nombre" placeholder="nombre">		
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text" bg.white>
+					<i class="fas fa-user-circle"></i>
+				</div>
+			</div>
+			<input type="text" class="form-control" formControlName="apellido" placeholder="apellido">		
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text" bg.white>
+					<i class="fas fa-id-badge"></i>
+				</div>
+			</div>
+			<input type="text" class="form-control" formControlName="usuario" placeholder="usuario">		
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text" bg.white>
+					<i class="fas fa-envelope-open"></i>
+				</div>
+			</div>
+			<input type="text" class="form-control" formControlName="email" placeholder="email">		
+		</div>
+	</div>
+
+
+
+    <div class="form-group">
+    	<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text" bg.white>
+					<i class="fas fa-key"></i>
+				</div>
+			</div>
+			<input type="text" class="form-control" formControlName="contrasenia" placeholder="password">		
+		</div>
+    </div>
+    <br>
+    <div class="form-group">
+	    <button class="btn btn-success btn-block" [disabled]="form.invalid" type="sub"> <i class="fas fa-database"></i> Crear</button>
+    </div>
+</form>

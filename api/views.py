@@ -73,7 +73,6 @@ class EventAPIVisual(APIView):
             events = Evento.objects.get(pk=event_id)
         except events.DoesNotExist:
             raise Http404
-        serializer = serializers.EventSerializer(events,data=request.data)
 
         events.delete()
         return Response(status=status.HTTP_204_NO_CONTENT) 
