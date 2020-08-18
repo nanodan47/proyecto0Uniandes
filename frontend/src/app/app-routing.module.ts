@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsersComponent } from './components/usuarios/users/users.component';
 import { EventosComponent } from './components/eventos/eventos.component';
 import { EventsComponent } from './components/eventos/events/events.component';
+import { LoginComponent } from './components/login/login.component';
+import { IniciarsesionComponent } from './components/login/iniciarsesion/iniciarsesion.component';
 
 //const routes: Routes = [];
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: UsuariosComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'create-user', component: UsuariosComponent },
   { path: 'events', component: EventosComponent }
 ];
 

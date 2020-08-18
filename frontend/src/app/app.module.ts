@@ -14,9 +14,11 @@ import { ListEventsComponent } from './components/eventos/list-events/list-event
 import { FooterComponent } from './components/footer/footer.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsersComponent } from './components/usuarios/users/users.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { APP_BASE_HREF } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
+import { IniciarsesionComponent } from './components/login/iniciarsesion/iniciarsesion.component';
+
 
 
 
@@ -29,7 +31,9 @@ import { APP_BASE_HREF } from '@angular/common';
     FooterComponent,
     UsuariosComponent,
     UsersComponent,
-    DashboardComponent,
+    LoginComponent,
+    IniciarsesionComponent,
+
   ],
   imports: [
     BrowserModule,
