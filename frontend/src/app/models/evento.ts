@@ -6,5 +6,5 @@ export class events{
     event_initial_date:string;
     event_final_date:string;
     event_type:string;
-    thumbnail:ImageBitmap;
+    thumbnail:File;
 }

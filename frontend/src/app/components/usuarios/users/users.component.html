@@ -1,3 +1,4 @@
+
 <form [formGroup]="form" (ngSubmit)="guardarUsuario()">
 	<div class="form-group">
 		<div class="input-group">
@@ -54,11 +55,11 @@
 					<i class="fas fa-key"></i>
 				</div>
 			</div>
-			<input type="text" class="form-control" formControlName="contrasenia" placeholder="password">		
+			<input type="password" class="form-control" formControlName="contrasenia" placeholder="password">		
 		</div>
     </div>
     <br>
     <div class="form-group">
-	    <button class="btn btn-success btn-block" [disabled]="form.invalid" type="sub"> <i class="fas fa-database"></i> Crear</button>
+	    <button  class="btn btn-success btn-block" (click)="goToPage('login')" [disabled]="form.invalid" type="sub"> <i class="fas fa-database"></i> Crear</button>
     </div>
 </form>

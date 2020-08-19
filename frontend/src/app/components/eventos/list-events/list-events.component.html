@@ -1,1 +1,12 @@
-<p>list-events works!</p>
+<table class="table table-sm">
+    <tr *ngFor="let evento of EventoService.listaEventos">
+        <td>{{ evento.event_name }}</td>
+        <td>{{ evento.event_initial_date }}</td>
+        <td>
+            <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i> 
+        </td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="eliminarEvento(evento.id)" style="cursor: pointer;"></i> 
+        </td>
+    </tr>
+</table>

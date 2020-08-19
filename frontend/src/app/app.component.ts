@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { UsuarioService } from './services/usuario.service';
-import { LoginService } from './services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoginService],
 })
 export class AppComponent {
-  title = 'FrontEnd';
+  title = 'EventManagementSystem';
+
+  constructor(private router:Router){}
+
+  goToPage(pageName:String):void{
+    this.router.navigate(['${pageName}'])
+  }
 }
+

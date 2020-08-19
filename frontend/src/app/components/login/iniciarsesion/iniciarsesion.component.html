@@ -6,7 +6,7 @@
 					<i class="fas fa-user-circle"></i>
 				</div>
 			</div>
-			<input type="text" class="form-control" formControlName="nombre" placeholder="nombre">		
+			<input type="text" class="form-control" formControlName="usuario" placeholder="usuario">		
 		</div>
 	</div>
 
@@ -17,9 +17,18 @@
 					<i class="fas fa-key"></i>
 				</div>
 			</div>
-			<input type="text" class="form-control" formControlName="contrasenia" placeholder="password">		
+			<input type="password" class="form-control" formControlName="contrasenia" placeholder="password">		
 		</div>
     </div>
     <br>
-
+	<div class="form-group">
+		<div class="row justify-content-md-center">
+			<div class="col-6"><!-- columna de tamanio 6 y small tamanio 12-->
+					<button class="btn btn-success btn-block" (click)="goToPage('events')" [disabled]="form.invalid" type="sub">  Log In  </button>
+			</div>
+			<div class="col-6">
+				<app-footer></app-footer>
+			</div>
+		</div>
+    </div>
 </form>
