@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  myApUrl = 'http://localhost:8000/'
+  myApUrl = 'http://172.24.98.142:8000/'
   myApiUrl = 'api/api-auth/'
   constructor(private http:HttpClient) { }
 

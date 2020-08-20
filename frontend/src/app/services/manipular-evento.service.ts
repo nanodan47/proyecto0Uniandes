@@ -7,7 +7,7 @@ import { events } from '../models/evento';
   providedIn: 'root'
 })
 export class ManipularEventoService {
-  myApUrl = 'http://localhost:8000/'
+  myApUrl = 'http://172.24.98.142:8000/'
   myApiUrl = 'api/events/'
 
   constructor(private http: HttpClient) { }
