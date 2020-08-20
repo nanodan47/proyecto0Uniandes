@@ -28,7 +28,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_WHITELIST = [
-    "http://172.24.98.142:8080"
+    "http://172.24.98.142:8080",
+    "http://localhost:8000"
 ]
 
 
