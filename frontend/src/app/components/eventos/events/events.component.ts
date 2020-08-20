@@ -21,8 +21,8 @@ evento:events;
       categoria: ['',[Validators.required]],
       lugar: ['',[Validators.required]],
       direccion: ['',[Validators.required]],
-      inicial: ['',[Validators.required]],
-      final: ['',[Validators.required]],
+      inicial: [,[Validators.required]],
+      final: [,[Validators.required]],
       tipo: ['',[Validators.required]],
       imagen: ['']
     })

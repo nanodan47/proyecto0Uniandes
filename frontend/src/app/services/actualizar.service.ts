@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class ActualizarService {
 
   myApUrl = 'http://172.24.98.142:8000/'
+  //myApUrl = 'http://localhost:8000/'
   myApiUrl = 'api/events/'
 
   constructor(private http:HttpClient) { }
