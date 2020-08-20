@@ -18,6 +18,7 @@ import { UsersComponent } from './components/usuarios/users/users.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { IniciarsesionComponent } from './components/login/iniciarsesion/iniciarsesion.component';
+import { ActualizarComponent } from './components/actualizar/actualizar.component';
 
 
 
@@ -33,6 +34,7 @@ import { IniciarsesionComponent } from './components/login/iniciarsesion/iniciar
     UsersComponent,
     LoginComponent,
     IniciarsesionComponent,
+    ActualizarComponent,
 
   ],
   imports: [

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {events} from '../models/evento'
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventoService {
-  myApUrl = 'http://127.0.0.1:8000/'
+  myApUrl = 'http://localhost:8000/'
   myApiUrl = 'api/events/'
   listaEventos: events [];
+  private actualizarFormulario = new BehaviorSubject<events>({} as any)
 
   constructor(private http:HttpClient) { }
   
@@ -22,6 +23,17 @@ export class EventoService {
     .then(data  => {
       this.listaEventos = data as events[];
     })
+  }
+
+  actualizarEvento(id: String, evento:events ,headers : HttpHeaders): Observable<events>{
+    return this.http.put<events>(this.myApUrl + this.myApiUrl, evento, {headers} )
+  }
+
+  actualizar(evento){
+    this.actualizarFormulario.next(evento);
+  }
+  obtenerEvento$():Observable<events>{
+    return this.actualizarFormulario.asObservable();
   }
 }
 

@@ -1,4 +1,7 @@
-<form [formGroup]="form" (ngSubmit)="guardarEvento()">
+<br>
+<h4> Actualizar Evento</h4>
+<br>
+<form [formGroup]="form">
 	<div class="form-group">
 		<div class="input-group">
 			<div class="input-group-prepend">
@@ -83,24 +86,10 @@
 			<input type="text" class="form-control" formControlName="tipo" placeholder="Tipo Evento">		
 		</div>
     </div>
-
-
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <div class="input-group-text" bg.white>
-    		<i class="fas fa-camera"></i>
-    	</div>
-      </div>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="onFileChanged($event)"
-          aria-describedby="inputGroupFileAddon01" [disabled] = "true">
-        <label class="custom-file-label" for="inputGroupFile01">Foto Evento</label>
-      </div>
+    <br>
+    <div class="form-group" >
+		    <button class="btn btn-success btn-block" (click)="actualizarEvento('events',evento.id)" [disabled]="form.invalid" type="sub"> Actualizar</button>
     </div>
-    <br>    		
-		<div class="form-group">
-		    		<button class="btn btn-success btn-block" (click)="goToPage('events')" [disabled]="form.invalid" type="sub"> <i class="fas fa-database"></i> Crear</button>
-    	</div>
 </form>
 
 

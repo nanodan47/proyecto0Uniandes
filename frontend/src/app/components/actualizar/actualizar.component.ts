@@ -1,43 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder, Validators} from '@angular/forms';
-import { EventoService } from '../../../services/evento.service';
-import { events } from '../../../models/evento';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { events } from '../../models/evento';
+import { EventoService } from '../../services/evento.service';
+import { Subscription } from 'rxjs';
+import { ActualizarService } from '../../services/actualizar.service';
 
 @Component({
-  selector: 'app-events',
-  templateUrl: './events.component.html',
-  styleUrls: ['./events.component.css']
+  selector: 'app-actualizar',
+  templateUrl: './actualizar.component.html',
+  styleUrls: ['./actualizar.component.css']
 })
-export class EventsComponent implements OnInit {
-form: FormGroup;
-evento:events;
-  constructor(private formBuilder: FormBuilder, private eventoService: EventoService,
-      private router:Router, private http: HttpClient,private toastr: ToastrService) {
-    this.form = this.formBuilder.group({
-      nombre: ['',[Validators.required]],
-      categoria: ['',[Validators.required]],
-      lugar: ['',[Validators.required]],
-      direccion: ['',[Validators.required]],
-      inicial: ['',[Validators.required]],
-      final: ['',[Validators.required]],
-      tipo: ['',[Validators.required]],
-      imagen: ['']
-    })
-   }
-   selectedFile: File
-
-  onFileChanged(event){
-    this.selectedFile = event.target.files[0]
-    console.log(this.selectedFile);
-    
-  }
+export class ActualizarComponent implements OnInit {
+  form: FormGroup;
+  suscription: Subscription;
+  evento:events;
+  id : String;
+  constructor(private formBuilder: FormBuilder, private router:Router, private http: HttpClient,private toastr: ToastrService, 
+    public eventoService: EventoService, private actualizarService:ActualizarService) {
+      this.form = this.formBuilder.group({
+        nombre: ['',[Validators.required]],
+        categoria: ['',[Validators.required]],
+        lugar: ['',[Validators.required]],
+        direccion: ['',[Validators.required]],
+        inicial: ['',[Validators.required]],
+        final: ['',[Validators.required]],
+        tipo: ['',[Validators.required]],
+        imagen: ['']
+      })
+     }
 
   ngOnInit(): void {
-    this.eventoService.obtenerEvento$().subscribe( data=> {
-      console.log(data)
+    this.suscription = this.eventoService.obtenerEvento$().subscribe(data=>{
+      console.log(data);
+
       this.evento = data;
       this.form.patchValue({
         nombre: this.evento.event_name,
@@ -50,8 +48,9 @@ evento:events;
       });  
     });
   }
-  //header = new HttpHeaders({'Authorization': 'Token '+sessionStorage.getItem('token')})
-  guardarEvento() {
+  errorFetch: boolean = false;
+
+  actualizarEvento(pageName:String,id: String) {
     const evento: events ={
       event_name: this.form.get('nombre').value,
       event_category: this.form.get('categoria').value,
@@ -59,15 +58,14 @@ evento:events;
       event_address: this.form.get('direccion').value,
       event_initial_date: this.form.get('inicial').value,
       event_final_date: this.form.get('final').value,
-      event_type: this.form.get('tipo').value,
-      thumbnail: this.selectedFile,
+      event_type: this.form.get('tipo').value
     }
     let header = new HttpHeaders({'Authorization':'Token '+sessionStorage.getItem('token')});
-    console.log(header);
-    
-    this.eventoService.guardarEvento(evento,header).subscribe(data =>{
+
+    this.actualizarService.actualizarEvento(evento,header,id).subscribe(data =>{
       console.log('Guardado Exitosamente');
       this.form.reset()
+      this.toastr.success('Evento Actualizado','Actualizado')
       this.eventoService.obtenerEventos(header)
     },(err: HttpErrorResponse) => {
       //if the back end is down
@@ -84,16 +82,6 @@ evento:events;
       //subscribe has finished
     }         
     );
-    }
-
-    
-    errorFetch: boolean = false;
-      
-  
-  goToPage(pageName:String):void{
     this.router.navigate([`${pageName}`])
-    
   }
-
 }
-

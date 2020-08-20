@@ -1,4 +1,5 @@
 export class events{
+    id?:String;
     event_name:string;
     event_category:string;
     event_place:string;
@@ -6,5 +7,5 @@ export class events{
     event_initial_date:string;
     event_final_date:string;
     event_type:string;
-    thumbnail:File;
+    thumbnail?:File;
 }

@@ -7,16 +7,17 @@ import { events } from '../models/evento';
   providedIn: 'root'
 })
 export class ManipularEventoService {
-  myApUrl = 'http://127.0.0.1:8000/'
+  myApUrl = 'http://localhost:8000/'
   myApiUrl = 'api/events/'
 
   constructor(private http: HttpClient) { }
 
-  eliminarEvento(id: String, headers : HttpHeaders): Observable<events>{
-    console.log(id);
+  eliminarEvento(id: String, headers : HttpHeaders){
+
     
-    console.log(this.myApUrl + this.myApiUrl + id);
-    
-    return this.http.delete<events>(this.myApUrl + this.myApiUrl + id+'dskkjsad', { headers} )
+    return this.http.delete(this.myApUrl + this.myApiUrl + id, { headers} ).toPromise()
+    .then(data  => {
+
+    })
   }
 }
