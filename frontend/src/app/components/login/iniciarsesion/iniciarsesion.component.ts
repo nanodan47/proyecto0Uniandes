@@ -38,7 +38,7 @@ export class IniciarsesionComponent implements OnInit {
     }
   errorFetch: boolean = false;
   goToPage(pageName:String):void{
-    this.http.post('http://172.24.98.142:8000/api/api-auth/', {username: this.form.get('usuario').value , password: this.form.get('contrasenia').value})
+    this.http.post('http://localhost:8000/api/api-auth/', {username: this.form.get('usuario').value , password: this.form.get('contrasenia').value})
         .subscribe(result => {
             // if everything goes well do what you want here
             

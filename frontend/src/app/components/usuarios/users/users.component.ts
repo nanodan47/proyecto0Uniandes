@@ -49,7 +49,7 @@ export class UsersComponent implements OnInit {
 
   errorFetch: boolean = false;
   goToPage(pageName:String):void{
-    this.http.post('http://172.24.98.142:8000/api/create-user/', {first_name: this.form.get('nombre').value, last_name: this.form.get('apellido').value,
+    this.http.post('http://localhost:8000/api/create-user/', {first_name: this.form.get('nombre').value, last_name: this.form.get('apellido').value,
     username: this.form.get('usuario').value,email: this.form.get('email').value , password: this.form.get('contrasenia').value})
         .subscribe(result => {
             // if everything goes well do what you want here

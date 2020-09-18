@@ -7,8 +7,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class EventoService {
-  myApUrl = 'http://172.24.98.142:8000/'
-  //myApUrl = 'http://localhost:8000/'
+  //myApUrl = 'http://172.24.98.142:8000/'
+  myApUrl = 'http://localhost:8000/'
   myApiUrl = 'api/events/'
   listaEventos: events [];
   private actualizarFormulario = new BehaviorSubject<events>({} as any)
